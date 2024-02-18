@@ -12,7 +12,7 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState> {
   FavouriteRepository favouriteRepository;
 
   FavouriteBloc(this.favouriteRepository,
-      {required List<dynamic> Function({bool growable}) favouriteList})
+      {List<dynamic> Function({bool growable})? favouriteList})
       : super(const FavouriteState()) {
     on<FetchFavouriteList>(fetchFavouriteList);
     on<FavouriteItem>(_addFavourite);

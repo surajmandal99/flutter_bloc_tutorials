@@ -66,7 +66,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 color: state.tempFavouriteList
                                         .contains(state.favouriteList[index])
                                     ? Colors.red
-                                    : Colors.white),
+                                    : Colors.black),
                           ),
                           trailing: IconButton(
                             onPressed: () {
