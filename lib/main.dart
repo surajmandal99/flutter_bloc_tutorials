@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_tutorials/bloc/counter_bloc/bloc/todo/bloc/todo_bloc_bloc.dart';
 import 'package:flutter_bloc_tutorials/bloc/favourite/bloc/favourite_bloc.dart';
-import 'package:flutter_bloc_tutorials/view/favourite/favourite_screen.dart';
+import 'package:flutter_bloc_tutorials/bloc/switch_bloc/bloc/switch_bloc.dart';
+import 'package:flutter_bloc_tutorials/view/switch_button/switch_widget.dart';
 import 'bloc/counter_bloc/bloc/counter_bloc.dart';
 import 'bloc/favourite/bloc/favourite_event.dart';
 import 'repository/favourite_repository.dart';
@@ -23,11 +24,12 @@ class MyApp extends StatelessWidget {
           BlocProvider(
               create: (_) => FavouriteBloc(FavouriteRepository())
                 ..add(FetchFavouriteList())),
+          BlocProvider(create: (_) => SwitchBloc()),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Favourite App',
-          home: FavouriteScreen(),
+          home: SwitchWidget(),
         ));
   }
 }
