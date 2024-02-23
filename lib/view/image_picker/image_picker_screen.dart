@@ -16,8 +16,33 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: BlocBuilder<ImagePickerBloc, ImagePickerState>(
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        BlocBuilder<ImagePickerBloc, ImagePickerState>(
+            buildWhen: (previous, current) => previous.file != current.file,
+            builder: (context, state) {
+              return state.file == null
+                  ? InkWell(
+                      onTap: () {
+                        context.read<ImagePickerBloc>().add(CameraCapture());
+                      },
+                      child: const CircleAvatar(
+                        radius: 20,
+                        child: Icon(Icons.camera),
+                      ),
+                    )
+                  : Image.file(
+                      File(state.file!.path.toString()),
+                      height: 200,
+                      width: 200,
+                    );
+            }),
+        const SizedBox(
+          height: 10,
+        ),
+        BlocBuilder<ImagePickerBloc, ImagePickerState>(
             builder: (context, state) {
           return state.file == null
               ? InkWell(
@@ -26,7 +51,7 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                   },
                   child: const CircleAvatar(
                     radius: 20,
-                    child: Icon(Icons.camera),
+                    child: Icon(Icons.browse_gallery),
                   ),
                 )
               : Image.file(
@@ -35,10 +60,7 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                   width: 200,
                 );
         }),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
-    );
+      ],
+    ));
   }
 }
