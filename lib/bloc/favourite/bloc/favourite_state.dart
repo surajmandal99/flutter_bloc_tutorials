@@ -25,6 +25,5 @@ class FavouriteState extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [favouriteList, listStatus, tempFavouriteList];
 }

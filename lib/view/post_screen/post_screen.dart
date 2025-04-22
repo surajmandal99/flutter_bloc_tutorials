@@ -33,14 +33,12 @@ class _PostScreenState extends State<PostScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     namesCubit = NamesCubit();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     namesCubit.close();
     super.dispose();
   }
