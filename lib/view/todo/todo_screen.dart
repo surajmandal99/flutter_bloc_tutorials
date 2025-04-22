@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/counter_bloc/bloc/todo/bloc/todo_bloc_bloc.dart';
-import '../../bloc/counter_bloc/bloc/todo/bloc/todo_bloc_event.dart';
-import '../../bloc/counter_bloc/bloc/todo/bloc/todo_bloc_state.dart';
+import '../../bloc/todo/bloc/todo_bloc_bloc.dart';
+import '../../bloc/todo/bloc/todo_bloc_event.dart';
+import '../../bloc/todo/bloc/todo_bloc_state.dart';
 
 class ToDoScreen extends StatefulWidget {
   const ToDoScreen({super.key});
